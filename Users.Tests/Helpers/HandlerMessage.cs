@@ -7,7 +7,7 @@ namespace Users.Tests.Helpers
 {
     public static class HandlerMessage
     {
-        public static Mock<HttpMessageHandler> Intercept<T>(String urlToIntercept, T? mockResponse)
+        public static Mock<HttpMessageHandler> Intercept(String urlToIntercept, object mockResponse)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
@@ -27,7 +27,5 @@ namespace Users.Tests.Helpers
 
             return handler;
         }
-
-
     }
 }
