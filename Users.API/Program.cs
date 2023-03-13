@@ -1,9 +1,15 @@
+using Users.API;
+using Users.API.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigureServices(builder.Services);
 
 void ConfigureServices(IServiceCollection services)
 {
+    services.AddScoped<IUsersService, UsersService>();
+    services.AddScoped<IUsersRepository, UsersRepository>();
+    services.AddSingleton<IHttpClientWithHandlerFactory, HttpClientWithHandlerFactory>();
 }
 
 // Add services to the container.
